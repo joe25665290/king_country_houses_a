@@ -1,6 +1,7 @@
 import dataset
 from sklearn.model_selection import train_test_split
-from sklearn.tree import DecisionTreeRegressor
+from sklearn.preprocessing import PolynomialFeatures
+from sklearn.linear_model import LinearRegression
 from sklearn import metrics
 
 # 加載數據集
@@ -9,8 +10,15 @@ X, y = dataset.load_data()
 # 劃分訓練集和測試集
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=1) 
 
-# 創建決策樹分類器對象
-regressor = DecisionTreeRegressor()
+# Create a Polynomial Features object
+poly = PolynomialFeatures(degree=2)
+
+# Transform the X_train and X_test to include polynomial features
+X_train_poly = poly.fit_transform(X_train)
+X_test_poly = poly.transform(X_test)
+
+# Create a Linear Regression model
+regressor = LinearRegression()
 
 # 訓練模型
 regressor = regressor.fit(X_train,y_train)
