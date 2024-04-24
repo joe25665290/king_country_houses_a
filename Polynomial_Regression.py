@@ -31,3 +31,5 @@ print("R^2 Score:",metrics.r2_score(y_test, y_pred))
 
 # 計算模型的均方誤差
 print("Mean Squared Error:", metrics.mean_squared_error(y_test, y_pred))
+# 計算模型的平均絕對誤差
+print("Mean Absolute Error:", metrics.mean_absolute_error(y_test, y_pred))
