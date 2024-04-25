@@ -1,17 +1,24 @@
 import dataset
-
-from sklearn.model_selection import train_test_split
 from sklearn.svm import SVR
 from sklearn import metrics
 
-# 加載數據集
-X, y = dataset.load_data()
-
 # 劃分訓練集和測試集
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=10) 
+X_train, X_test, y_train, y_test = dataset.get_data()
 
 # 創建支援向量機迴歸器對象
-regressor = SVR()
+regressor = SVR(
+    kernel='rbf', # 核函數
+    degree=3, # 多項式核函數的次數
+    gamma='scale', # 核函數的係數
+    coef0=0.0, # 核函數的獨立項
+    tol=0.001, # 容忍度
+    C=1.0, # 懲罰係數
+    epsilon=0.1, # epsilon-tube
+    shrinking=True, # 是否使用收縮啟發式算法
+    cache_size=200, # 核緩存大小
+    verbose=False, # 是否輸出日誌
+    max_iter=-1 # 最大迭代次數
+)
 
 # 訓練模型
 regressor = regressor.fit(X_train,y_train)

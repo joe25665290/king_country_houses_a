@@ -115,3 +115,30 @@ regressor = Lasso(alpha=2.0,
 R^2 Score: 0.6574326050487405
 Mean Squared Error: 53464603066.77592
 Mean Absolute Error: 134642.98848177437
+----------------------------------------------------------------
+Ridge_Regression
+
+R^2 Score: 0.6843153224470055
+Mean Squared Error: 49269008750.92152
+Mean Absolute Error: 129506.3618781938
+
+----------------------------------------------------------------
+XGBoost
+
+R^2 Score: 0.861234186532205
+Mean Squared Error: 21657224959.630238
+Mean Absolute Error: 69784.08642909469
+
+----------------------------------------------------------------
+Random_Forest
+
+R^2 Score: 0.8567379483310188
+Mean Squared Error: 22358954295.99716
+Mean Absolute Error: 72488.921102573
+
+----------------------------------------------------------------
+Polynomial_Regression
+
+R^2 Score: 0.6843292712574407
+Mean Squared Error: 49266831755.6086
+Mean Absolute Error: 129507.22166170161
