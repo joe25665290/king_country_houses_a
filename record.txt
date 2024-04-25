@@ -111,7 +111,93 @@ regressor = Lasso(alpha=2.0,
                   positive=True, 
                   random_state=True, 
                   selection='cyclic')
-                  
+
 R^2 Score: 0.6574326050487405
 Mean Squared Error: 53464603066.77592
 Mean Absolute Error: 134642.98848177437
+
+----------------------------------------------------------------
+
+LightGBM
+
+regressor = lgb.LGBMRegressor(num_leaves=31, 
+                              learning_rate=0.05, 
+                              n_estimators=20, 
+                              random_state=1,   
+                              n_jobs=-1)
+
+R^2 Score: 0.6603080302053612
+Mean Squared Error: 53015834541.47939
+Mean Absolute Error: 124990.70964631019
+
+
+regressor = lgb.LGBMRegressor(num_leaves=50, 
+                              learning_rate=0.2, 
+                              n_estimators=30, 
+                              random_state=1,   
+                              n_jobs=-1)
+
+R^2 Score: 0.8659579005205393
+Mean Squared Error: 20919993404.29437
+Mean Absolute Error: 71185.05129350028
+
+----------------------------------------------------------------
+Bayesian_Linear_Regression
+
+regressor = BayesianRidge(n_iter=300, 
+                          tol=0.001, 
+                          alpha_1=1e-06, 
+                          alpha_2=1e-06, 
+                          lambda_1=1e-06, 
+                          lambda_2=1e-06, 
+                          alpha_init=None, 
+                          lambda_init=None, 
+                          compute_score=False, 
+                          fit_intercept=True, 
+                          copy_X=True, 
+                          verbose=False)
+                    
+R^2 Score: 0.684283942209645
+Mean Squared Error: 49273906274.6186
+Mean Absolute Error: 129504.54406703377
+
+----------------------------------------------------------------
+Linear_Regression
+
+regressor = LinearRegression(   fit_intercept=True,  
+                                copy_X=True, 
+                                n_jobs=None)
+R^2 Score: 0.6843292712574102
+Mean Squared Error: 49266831755.61336
+Mean Absolute Error: 129507.22166169088
+
+regressor = LinearRegression(   fit_intercept=False,  
+                                copy_X=True, 
+                                n_jobs=-1)
+
+R^2 Score: 0.6843284909389314
+Mean Squared Error: 49266953540.1683
+Mean Absolute Error: 129503.38362900601
+
+----------------------------------------------------------------
+Neural_Neworks
+
+model = Sequential()
+model.add(Dense(30, input_dim=X_train.shape[1], activation='sigmoid'))
+model.add(Dense(1))
+model.compile(loss='mean_squared_error', optimizer='adam')
+model.fit(X_train, y_train, epochs=50, batch_size=50)
+
+R^2 Score: -1.9052414234907888
+Mean Squared Error: 453421959618.16516
+Mean Absolute Error: 545299.5805075503
+
+model = Sequential()
+model.add(Dense(20, input_dim=X_train.shape[1], activation='relu'))
+model.add(Dense(1))
+model.compile(loss='mean_squared_error', optimizer='adam')
+model.fit(X_train, y_train, epochs=50, batch_size=50)
+
+R^2 Score: 0.49970260635690045
+Mean Squared Error: 78081574489.23763
+Mean Absolute Error: 172103.6168935071

@@ -4,18 +4,15 @@ from keras.models import Sequential
 from keras.layers import Dense
 from sklearn import metrics
 
-# 加載數據集
-X, y = dataset.load_data()
-
 # 劃分訓練集和測試集
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=1) 
+X_train, X_test, y_train, y_test = dataset.get_data()
 
 
 # Create a Sequential model
 model = Sequential()
 
 # Add an input layer and a hidden layer with 20 neurons
-model.add(Dense(20, input_dim=X_train.shape[1], activation='relu'))
+model.add(Dense(30, input_dim=X_train.shape[1], activation='sigmoid'))
 
 # Add a output layer with 1 neuron
 model.add(Dense(1))
