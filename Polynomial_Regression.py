@@ -7,14 +7,14 @@ from sklearn import metrics
 X_train, X_test, y_train, y_test = dataset.get_data()
 
 # Create a Polynomial Features object
-poly = PolynomialFeatures(degree=2)
+poly = PolynomialFeatures(degree=2, include_bias=False, interaction_only=False, order='C')
 
 # Transform the X_train and X_test to include polynomial features
 X_train_poly = poly.fit_transform(X_train)
 X_test_poly = poly.transform(X_test)
 
 # Create a Linear Regression model
-regressor = LinearRegression()
+regressor = LinearRegression(fit_intercept=True, copy_X=True, n_jobs=None)
 
 # 訓練模型
 regressor = regressor.fit(X_train,y_train)

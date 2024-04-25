@@ -6,7 +6,13 @@ from sklearn import metrics
 X_train, X_test, y_train, y_test = dataset.get_data()
 
 
-regressor = Ridge()
+regressor = Ridge(  alpha=1.0, 
+                    fit_intercept=True,
+                    copy_X=True,
+                    max_iter=None,
+                    tol=0.001,
+                    solver='auto',
+                    random_state=None)
 
 # 訓練模型
 regressor = regressor.fit(X_train,y_train)

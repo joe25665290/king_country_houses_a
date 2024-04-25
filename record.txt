@@ -183,7 +183,8 @@ Mean Absolute Error: 129503.38362900601
 Neural_Neworks
 
 model = Sequential()
-model.add(Dense(30, input_dim=X_train.shape[1], activation='sigmoid'))
+model.add(Dense(30, input_dim=X_train.shape[1], 
+            activation='sigmoid'))
 model.add(Dense(1))
 model.compile(loss='mean_squared_error', optimizer='adam')
 model.fit(X_train, y_train, epochs=50, batch_size=50)
@@ -193,7 +194,8 @@ Mean Squared Error: 453421959618.16516
 Mean Absolute Error: 545299.5805075503
 
 model = Sequential()
-model.add(Dense(20, input_dim=X_train.shape[1], activation='relu'))
+model.add(Dense(20, input_dim=X_train.shape[1], 
+                activation='relu'))
 model.add(Dense(1))
 model.compile(loss='mean_squared_error', optimizer='adam')
 model.fit(X_train, y_train, epochs=50, batch_size=50)
@@ -205,16 +207,44 @@ Mean Absolute Error: 172103.6168935071
 ----------------------------------------------------------------
 Ridge_Regression
 
-R^2 Score: 0.6843153224470055
-Mean Squared Error: 49269008750.92152
-Mean Absolute Error: 129506.3618781938
+regressor = Ridge(  alpha=2.0, 
+                    fit_intercept=True,
+                    copy_X=True,
+                    max_iter=None,
+                    tol=0.01,
+                    solver='auto',
+                    random_state=None)
+
+R^2 Score: 0.6843008539346354
+Mean Squared Error: 49271266856.281906
+Mean Absolute Error: 129505.50550046313
+
+regressor = Ridge(  alpha=1.0, 
+                    fit_intercept=True,
+                    copy_X=True,
+                    max_iter=None,
+                    tol=0.001,
+                    solver='auto',
+                    random_state=None)
+
+R^2 Score: 0.6843153224470054
+Mean Squared Error: 49269008750.92153
+Mean Absolute Error: 129506.36187819381
 
 ----------------------------------------------------------------
 XGBoost
 
-R^2 Score: 0.861234186532205
-Mean Squared Error: 21657224959.630238
-Mean Absolute Error: 69784.08642909469
+regressor = XGBRegressor(max_depth=3)
+
+R^2 Score: 0.8614606960345857
+Mean Squared Error: 21621873549.034477
+Mean Absolute Error: 76175.08683514227
+
+regressor = XGBRegressor(max_depth=10)
+
+R^2 Score: 0.8763888276111862
+Mean Squared Error: 19292035271.85372
+Mean Absolute Error: 70516.28057646708
 
 ----------------------------------------------------------------
 Random_Forest
@@ -226,6 +256,20 @@ Mean Absolute Error: 72488.921102573
 ----------------------------------------------------------------
 Polynomial_Regression
 
+regressor = LinearRegression(fit_intercept=True, 
+                            copy_X=True, 
+                            n_jobs=None)
+regressor = regressor.fit(X_train,y_train)
+
 R^2 Score: 0.6843292712574407
 Mean Squared Error: 49266831755.6086
 Mean Absolute Error: 129507.22166170161
+
+regressor = LinearRegression(fit_intercept=False, 
+                            copy_X=True, 
+                            n_jobs=None)
+regressor = regressor.fit(X_train,y_train)
+
+R^2 Score: 0.6843284909389314
+Mean Squared Error: 49266953540.1683
+Mean Absolute Error: 129503.38362900601

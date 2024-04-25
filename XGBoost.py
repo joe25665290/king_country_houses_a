@@ -6,7 +6,7 @@ from sklearn import metrics
 X_train, X_test, y_train, y_test = dataset.get_data()
 
 # 創建決策樹分類器對象
-regressor = XGBRegressor()
+regressor = XGBRegressor(max_depth=5)
 
 # 訓練模型
 regressor = regressor.fit(X_train,y_train)
