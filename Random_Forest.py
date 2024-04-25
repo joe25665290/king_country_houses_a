@@ -3,11 +3,8 @@ from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestRegressor
 from sklearn import metrics
 
-# 加載數據集
-X, y = dataset.load_data()
-
 # 劃分訓練集和測試集
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=1) 
+X_train, X_test, y_train, y_test = dataset.get_data()
 
 # 創建隨機森林迴歸器對象
 regressor = RandomForestRegressor(n_estimators=100)
