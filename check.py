@@ -4,12 +4,15 @@ import numpy as np
 # from sklearn.model_selection import train_test_split
 
 # 加載數據集
-X, y = dataset.load_data()
+train_Data, train_target, test_Data, test_target = dataset.load_data()
 
-print(type(X))
+print(train_Data)
+print(train_target)
+print(test_Data)
+print(test_target)
 
 # print(X.isnull().sum())
-print(X)
+# print(X)
 
 
 # print(X.isnull.sum())

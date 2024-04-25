@@ -7,7 +7,7 @@ from sklearn import metrics
 X, y = dataset.load_data()
 
 # 劃分訓練集和測試集
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=1) 
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=1)
 
 
 regressor = Lasso(alpha=1.0)
