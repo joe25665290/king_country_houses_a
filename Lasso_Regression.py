@@ -3,14 +3,20 @@ from sklearn.model_selection import train_test_split
 from sklearn.linear_model import Lasso
 from sklearn import metrics
 
-# 加載數據集
-X, y = dataset.load_data()
-
 # 劃分訓練集和測試集
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=1)
+X_train, X_test, y_train, y_test = dataset.get_data()
 
 
-regressor = Lasso(alpha=1.0)
+regressor = Lasso(alpha=2.0, 
+                  fit_intercept=True, 
+                  precompute=False, 
+                  copy_X=True, 
+                  max_iter=1000, 
+                  tol=0.01, 
+                  warm_start=False, 
+                  positive=True, 
+                  random_state=True, 
+                  selection='cyclic')
 
 # 訓練模型
 regressor = regressor.fit(X_train,y_train)

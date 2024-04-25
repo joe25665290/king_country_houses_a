@@ -3,14 +3,18 @@ from sklearn.model_selection import train_test_split
 from sklearn.tree import DecisionTreeRegressor
 from sklearn import metrics
 
-# 加載數據集
-X, y = dataset.load_data()
-
 # 劃分訓練集和測試集
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=1) 
+X_train, X_test, y_train, y_test = dataset.get_data()
 
 # 創建決策樹分類器對象
-regressor = DecisionTreeRegressor()
+regressor = DecisionTreeRegressor( random_state=0, 
+                                max_depth=150, 
+                                min_samples_split=20,    
+                                min_samples_leaf=5,
+                                max_features=10,
+                                max_leaf_nodes=200,
+                                min_impurity_decrease=0.1,
+                                splitter='best')
 
 # 訓練模型
 regressor = regressor.fit(X_train,y_train)

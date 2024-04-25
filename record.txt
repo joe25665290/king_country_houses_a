@@ -1,0 +1,117 @@
+CatBoost
+
+origin:
+
+CatBoostRegressor(  iterations=1000,    # 迭代次數
+                                learning_rate=0.1,  # 學習率
+                                depth=6,            # 樹的深度
+                                loss_function='RMSE', # 損失函數
+                                logging_level='Silent' # 輸出訓練日誌 
+                            )
+                        
+R^2 Score: 0.8822343592240824
+Mean Squared Error: 18379721280.49369
+Mean Absolute Error: 66127.25164724888
+
+CatBoostRegressor(  iterations=2000,    # 迭代次數
+                                learning_rate=0.1,  # 學習率
+                                depth=5,            # 樹的深度
+                                loss_function='RMSE', # 損失函數
+                                logging_level='Silent' # 輸出訓練日誌 
+                            )
+^2 Score: 0.885255886618613
+Mean Squared Error: 17908150532.124752
+Mean Absolute Error: 65999.35758312393
+
+----------------------------------------------------------------
+
+decision tree
+
+regressor = DecisionTreeRegressor( random_state=0, 
+                                max_depth=5, 
+                                min_samples_split=5,    
+                                min_samples_leaf=5,
+                                max_features=5,
+                                max_leaf_nodes=5,
+                                min_impurity_decrease=0.1,
+                                splitter='best')
+
+R^2 Score: 0.41721637452876714
+Mean Squared Error: 90955227113.97931
+Mean Absolute Error: 164464.48131273634
+
+regressor = DecisionTreeRegressor( random_state=0, 
+                                max_depth=150, 
+                                min_samples_split=20,    
+                                min_samples_leaf=5,
+                                max_features=10,
+                                max_leaf_nodes=200,
+                                min_impurity_decrease=0.1,
+                                splitter='best')
+
+R^2 Score: 0.7868314900138872
+Mean Squared Error: 33269277639.12014
+Mean Absolute Error: 97346.97119635002
+
+----------------------------------------------------------------
+KNN
+
+regressor = KNeighborsRegressor(n_neighbors=10, 
+                                weights='uniform', 
+                                algorithm='auto', 
+                                leaf_size=30, p=2, 
+                                metric='minkowski', 
+                                metric_params=None, 
+                                n_jobs=None)
+
+R^2 Score: 0.5116449722865809
+Mean Squared Error: 76217725613.02045
+Mean Absolute Error: 162912.154503393    
+
+regressor = KNeighborsRegressor(n_neighbors=10, 
+                                weights='distance', 
+                                algorithm='brute', 
+                                leaf_size=50, p=2, 
+                                metric='minkowski', 
+                                metric_params=None, 
+                                n_jobs=None)
+
+
+R^2 Score: 0.5191794651909667
+Mean Squared Error: 75041814891.86224
+Mean Absolute Error: 162303.93700500872
+
+----------------------------------------------------------------
+Lasso_Regression
+
+regressor = Lasso(alpha=1.0, 
+                  fit_intercept=True, 
+                  precompute=False, 
+                  copy_X=True, 
+                  max_iter=1000, 
+                  tol=0.0001, 
+                  warm_start=False, 
+                  positive=False, 
+                  random_state=None, 
+                  selection='cyclic')
+
+R^2 Score: 0.6843301130205681
+Mean Squared Error: 49266700381.36765
+Mean Absolute Error: 129507.36100043672
+收斂不了
+ConvergenceWarning: Objective did not converge. You might want to increase the number of iterations, check the scale of the features or consider increasing regularisation. Duality gap: 2.863e+14, tolerance: 1.901e+14
+
+regressor = Lasso(alpha=2.0, 
+                  fit_intercept=True, 
+                  precompute=False, 
+                  copy_X=True, 
+                  max_iter=1000, 
+                  tol=0.01, 
+                  warm_start=False, 
+                  positive=True, 
+                  random_state=True, 
+                  selection='cyclic')
+                  
+R^2 Score: 0.6574326050487405
+Mean Squared Error: 53464603066.77592
+Mean Absolute Error: 134642.98848177437
