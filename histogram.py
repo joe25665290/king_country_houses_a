@@ -108,7 +108,7 @@ plt.close
 x = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
 # color = ['r','b','g','y','m']
 label = ['LR', 'RR', 'Lasso', 'PR', 'DT', 'RF', 'XGBoost', 'LightGBM', 'CatBoost', 'KNN', 'Bayesion']
-plt.bar(x, MAE_h, tick_label=label, width=0.5)
+plt.bar(x, MSE_h, tick_label=label, width=0.5)
 plt.tick_params(axis='x', rotation=50)
 plt.xlabel('Regression Type')
 plt.ylabel('Value')

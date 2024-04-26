@@ -44,5 +44,5 @@ def run():
 if __name__ == '__main__':
     R2, MSE, MAE = run()
     print(R2)
-    print(MAE)
+    print(MSE)
     print(MAE)
