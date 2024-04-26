@@ -1,5 +1,4 @@
-import dataset
-from sklearn.model_selection import train_test_split
+import data_process.dataset as dataset
 from sklearn.neighbors import KNeighborsRegressor
 from sklearn import metrics
 

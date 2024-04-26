@@ -1,5 +1,4 @@
-import dataset
-from sklearn.model_selection import train_test_split
+import data_process.dataset as dataset
 import lightgbm as lgb
 from sklearn import metrics
 

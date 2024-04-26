@@ -16,7 +16,7 @@ def z_score_normalization(df, cols):
 
 def load_data():
     # 讀取 CSV 檔案
-    df = pd.read_csv('king_ country_ houses_aa.csv')
+    df = pd.read_csv('dataset/king_ country_ houses_aa.csv')
 
     # 將 'X' 和 'y' 設定為你的特徵和目標變量
     data = df[[
@@ -48,10 +48,10 @@ def data_split(X, y):
     # 劃分訓練集和測試集
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=1)
     # save to csv
-    X_train.to_csv('X_train.csv', index=False)
-    X_test.to_csv('X_test.csv', index=False)
-    y_train.to_csv('y_train.csv', index=False)
-    y_test.to_csv('y_test.csv', index=False)
+    X_train.to_csv('dataset/X_train.csv', index=False)
+    X_test.to_csv('dataset/X_test.csv', index=False)
+    y_train.to_csv('dataset/y_train.csv', index=False)
+    y_test.to_csv('dataset/y_test.csv', index=False)
 
 if __name__ == '__main__':
     X, y = load_data()
@@ -60,8 +60,8 @@ if __name__ == '__main__':
 
 def get_data():
     # return X_train, X_test, y_train, y_test
-    X_train = pd.read_csv('X_train.csv')
-    X_test = pd.read_csv('X_test.csv')
-    y_train = pd.read_csv('y_train.csv')
-    y_test = pd.read_csv('y_test.csv')
+    X_train = pd.read_csv('dataset/X_train.csv')
+    X_test = pd.read_csv('dataset/X_test.csv')
+    y_train = pd.read_csv('dataset/y_train.csv')
+    y_test = pd.read_csv('dataset/y_test.csv')
     return X_train, X_test, y_train, y_test
