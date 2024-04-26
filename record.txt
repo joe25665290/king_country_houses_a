@@ -161,6 +161,22 @@ R^2 Score: 0.684283942209645
 Mean Squared Error: 49273906274.6186
 Mean Absolute Error: 129504.54406703377
 
+regressor = BayesianRidge(n_iter=500, 
+                          tol=0.01, 
+                          alpha_1=1e-06, 
+                          alpha_2=1e-06, 
+                          lambda_1=1e-06, 
+                          lambda_2=1e-06, 
+                          alpha_init=None, 
+                          lambda_init=None, 
+                          compute_score=True, 
+                          fit_intercept=True, 
+                          copy_X=True, 
+                          verbose=False)
+
+R^2 Score: 0.6842839422096414
+Mean Squared Error: 49273906274.619156
+Mean Absolute Error: 129504.5440670335                         
 ----------------------------------------------------------------
 Linear_Regression
 
