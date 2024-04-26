@@ -76,10 +76,10 @@ R2_h.append(R2)
 MSE_h.append(MSE)
 MAE_h.append(MAE)
 
-R2, MSE, MAE = Neural_Networks.run()
-R2_h.append(R2)
-MSE_h.append(MSE)
-MAE_h.append(MAE)
+# R2, MSE, MAE = Neural_Networks.run()
+# R2_h.append(R2)
+# MSE_h.append(MSE)
+# MAE_h.append(MAE)
 
 R2, MSE, MAE = KNN.run()
 R2_h.append(R2)
@@ -92,29 +92,41 @@ MSE_h.append(MSE)
 MAE_h.append(MAE)
 
 
-x = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
-# h = [10,20,30,40,50]
-# color = ['r','b','g','y','m']   # 顏色數據
-label = ['LR', 'RR', 'Lasso', 'PR', 'DT', 'RF', 'XGBoost', 'LightGBM', 'CatBoost', 'NN', 'KNN', 'Bayesion']   # 標籤數據
-plt.bar(x, R2_h, tick_label=label, width=0.5)  # 加入顏色、標籤和寬度參數
+x = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+# color = ['r','b','g','y','m']
+label = ['LR', 'RR', 'Lasso', 'PR', 'DT', 'RF', 'XGBoost', 'LightGBM', 'CatBoost', 'KNN', 'Bayesion']
+plt.bar(x, R2_h, tick_label=label, width=0.5)
+plt.tick_params(axis='x', rotation=50)
+plt.xlabel('Regression Type')
+plt.ylabel('Value')
 plt.title('R2')
-plt.show()
+plt.tight_layout()
+# plt.show()
+plt.savefig('R2.png')
 plt.close
 
-x = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
-# h = [10,20,30,40,50]
-# color = ['r','b','g','y','m']   # 顏色數據
-label = ['LR', 'RR', 'Lasso', 'PR', 'DT', 'RF', 'XGBoost', 'LightGBM', 'CatBoost', 'NN', 'KNN', 'Bayesion']   # 標籤數據
-plt.bar(x, MAE_h, tick_label=label, width=0.5)  # 加入顏色、標籤和寬度參數
+x = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+# color = ['r','b','g','y','m']
+label = ['LR', 'RR', 'Lasso', 'PR', 'DT', 'RF', 'XGBoost', 'LightGBM', 'CatBoost', 'KNN', 'Bayesion']
+plt.bar(x, MAE_h, tick_label=label, width=0.5)
+plt.tick_params(axis='x', rotation=50)
+plt.xlabel('Regression Type')
+plt.ylabel('Value')
 plt.title('MSE')
-plt.show()
+plt.tight_layout()
+# plt.show()
+plt.savefig('MSE.png')
 plt.close
 
-x = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
-# h = [10,20,30,40,50]
-# color = ['r','b','g','y','m']   # 顏色數據
-label = ['LR', 'RR', 'Lasso', 'PR', 'DT', 'RF', 'XGBoost', 'LightGBM', 'CatBoost', 'NN', 'KNN', 'Bayesion']   # 標籤數據
-plt.bar(x, MAE_h, tick_label=label, width=0.5)  # 加入顏色、標籤和寬度參數
+x = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+# color = ['r','b','g','y','m']
+label = ['LR', 'RR', 'Lasso', 'PR', 'DT', 'RF', 'XGBoost', 'LightGBM', 'CatBoost', 'KNN', 'Bayesion']
+plt.bar(x, MAE_h, tick_label=label, width=0.5)
+plt.tick_params(axis='x', rotation=50)
+plt.xlabel('Regression Type')
+plt.ylabel('Value')
 plt.title('MAE')
-plt.show()
+plt.tight_layout()
+# plt.show()
+plt.savefig('MAE.png')
 plt.close
